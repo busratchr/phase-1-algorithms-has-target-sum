@@ -1,9 +1,21 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const visitedNumbers = new Set();
+    for (let num of array){
+      const difference = target - num;
+      if (visitedNumbers.has(difference)){
+        return true;
+      }
+      visitedNumbers.add(num);
+    }
+    return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+  The time complexity of the 'hasTargetSum' function is proportional 
+  to the number of elements in the input array. So as the array gets bigger
+  the function takes longer to run.
 */
 
 /* 
@@ -12,6 +24,14 @@ function hasTargetSum(array, target) {
 
 /*
   Add written explanation of your solution here
+  function hasTargetSum(array, target):
+  Create an empty set called visitedNumbers
+  For each num in array:
+  Calculate the difference as target minus num
+  If the difference exists in visitedNumbers:
+  Return true
+  Add num to visitedNumbers
+  Return false
 */
 
 // You can run `node index.js` to view these console logs
